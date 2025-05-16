@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #F0F0F0;
+    color: #080808;
+    height: 105vh;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+#video-stream {
+    width: 90vw;
+    max-width: 700px;
+    height: auto;
+    border-radius: 12px;
+    background: #1e1e1e;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+}
+
+.control-panel {
+    width: 100%;
+    display: flex;
+    grid-template-columns: auto auto;
+    gap: 40px;
+    justify-content: center;
+    align-items: start;
+    margin-top: 0px;
+}
+
+.controls .stop {
+    background-color: #e74c3c;
+    color: white;
+    font-weight: bold;
+    border: none;
+    transition: background 0.2s;
+}
+
+.controls .stop:hover {
+    background-color: #c0392b;
+}
+
+
+.controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        ". up ."
+        "left stop right"
+        ". down .";
+    gap: 15px;
+    background: rgba(40, 40, 40, 0.8);
+    padding: 15px;
+    border-radius: 15px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    pointer-events: auto;
+}
+
+.controls button {
+    font-size: 40px;
+    padding: 15px;
+}
+
+.up {
+    grid-area: up;
+    border-radius: 15px;
+}
+
+.left {
+    grid-area: left;
+    border-radius: 15px;
+}
+
+.stop {
+    grid-area: stop;
+    border-radius: 15px;
+}
+
+.right {
+    grid-area: right;
+    border-radius: 15px;
+}
+
+.down {
+    grid-area: down;
+    border-radius: 15px;
+}
+
+.voice-control {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.mic-icon {
+    width: 80px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.mic-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive Adaptation (mobile optimization) */
+@media screen and (max-width: 600px) {
+    #video-stream {
+        width: 95vw;
+    }
+
+    .controls {
+        width: 95vw;
+        gap: 10px;
+    }
+
+    .controls button {
+        font-size: 30px;
+        padding: 10px;
+    }
+
+    .voice-control {
+        width: 100px;
+        padding: 10px;
+    }
+
+    .mic-icon {
+        width: 50px;
+    }
+}
+
+.loading-popup {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.loading-gif {
+    width: 100px;
+    height: 100px;
+}
+
+.popup {
+    display: none;
+    /* Initial concealment */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+/* Text Box Styles */
+#voice-input {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.stop-btn {
+    margin-top: 12px;
+    padding: 8px 16px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.stop-btn:hover {
+    background-color: #c0392b;
+}
+
+#sensorBox {
+    margin-top: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    font-family: monospace;
+}

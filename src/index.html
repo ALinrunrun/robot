@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1, user-scalable=no">
+
+  <title>LexiBot Control Panel</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+
+<body>
+
+  <img id="video-stream" src="http://192.168.111.127:8000/stream.mjpg" alt="Live video">
+
+  <div class="control-panel">
+    <div class="controls">
+      <!-- <button class="up" onmousedown="startForward()" onmouseup="stopMovement()" onmouseleave="stopMovement()">⬆</button> -->
+      <button class="up" onmousedown="startForward()" onmouseup="stopMovement()" onmouseleave="stopMovement()"
+        ontouchstart="startForward()" ontouchend="stopMovement()">⬆</button>
+      <button class="left" onmousedown="startLeft()" onmouseup="stopMovement()" ontouchstart="startLeft()"
+        ontouchend="stopMovement()">⬅</button>
+      <button class="stop" onclick="sendCommand('stop')">⏹</button>
+      <button class="right" onmousedown="startRight()" onmouseup="stopMovement()" ontouchstart="startRight()"
+        ontouchend="stopMovement()">➡</button>
+      <button class="down" onmousedown="startBackward()" onmouseup="stopMovement()" ontouchstart="startBackward()"
+        ontouchend="stopMovement()">⬇</button>
+    </div>
+    <div class="funcs">
+      <div class="voice-control">
+        <img src="images/microphone.png" alt="Voice Input" class="mic-icon" onclick="startVoiceRecognition()">
+      </div>
+      <div id="sensorBox">
+        Front: <span id="d1">0.000</span> m <br>
+        Below:&nbsp;<span id="d2">0.000</span> m
+      </div>
+    </div>
+    <div id="voice-loading" class="loading-popup">
+      <img src="images/voice.gif" alt="Listening..." class="loading-gif">
+      <p>Listening to you....</p>
+      <button onclick="stopVoiceRecognition()" class="stop-btn">Stop</button>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="js/sensor.js"></script>
+    <script src="js/send.js"></script>
+    <script src="js/voice_input.js"></script>
+    <script src="js/keyboard.js"></script>
+</body>
+
+</html>
